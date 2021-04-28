@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 Then(/^tuist graph$/) do
-  system("swift", "run", "tuist", "graph", "--path", @dir, "--output-path", @dir)
+  system("swift", "run", "tuist", "graph", "--path", @dir, "--build-output-path", @dir)
 end
 
 Then(/^tuist graph of ([a-zA-Z]+)$/) do |target_name|
-  system("swift", "run", "tuist", "graph", "--path", @dir, "--output-path", @dir, target_name)
+  system("swift", "run", "tuist", "graph", "--path", @dir, "--build-output-path", @dir, target_name)
 end
 
 Then(/^I should be able to open a graph file$/) do

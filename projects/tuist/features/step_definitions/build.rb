@@ -10,6 +10,10 @@ Then(/^tuist builds the scheme ([a-zA-Z\-]+) and configuration ([a-zA-Z\-]+) fro
   system("swift", "run", "tuist", "build", scheme, "--path", @dir, "--configuration", configuration)
 end
 
+Then(/^tuist builds the scheme ([a-zA-Z\-]+) and configuration ([a-zA-Z\-]+) from the project to output path (.+)$/) do |scheme, configuration, path|
+  system("swift", "run", "tuist", "build", scheme, "--path", @dir, "--configuration", configuration, "--build-output-path", File.join(@dir, path))
+end
+
 Then(/^tuist builds the project at (.+)$/) do |path|
   system("swift", "run", "tuist", "build", "--path", File.join(@dir, path))
 end
